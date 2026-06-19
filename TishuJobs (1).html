@@ -1,0 +1,3862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TishuJobs - Connecting Freshers with Their Dream Careers. India's premier job portal for students and fresh graduates.">
+<meta name="keywords" content="fresher jobs, internships India, entry level jobs, student jobs, TishuJobs">
+<title>TishuJobs - Connecting Freshers with Their Dream Careers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --primary: #6C63FF;
+  --primary-dark: #5A52E0;
+  --primary-light: #E8E7FF;
+  --secondary: #FF6B6B;
+  --accent: #4ECDC4;
+  --accent2: #FFE66D;
+  --dark: #0F0E17;
+  --dark2: #1A1930;
+  --card-bg: #ffffff;
+  --surface: #F8F7FF;
+  --text: #0F0E17;
+  --text-muted: #6B7280;
+  --border: #E5E7EB;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --gradient: linear-gradient(135deg, #6C63FF 0%, #4ECDC4 50%, #FFE66D 100%);
+  --gradient-hero: linear-gradient(135deg, #0F0E17 0%, #1A1930 40%, #2D1B69 100%);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow: 0 4px 20px rgba(108,99,255,0.15);
+  --shadow-lg: 0 20px 60px rgba(108,99,255,0.2);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --card-bg: #1E1C2E;
+  --surface: #16152A;
+  --text: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --border: #2D2B45;
+  --shadow: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.6;
+  transition: var(--transition);
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ===== PAGE SECTIONS ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(15,14,23,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(108,99,255,0.2);
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.nav-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-logo span { color: #fff; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.nav-links a:hover { color: #fff; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(108,99,255,0.4);
+}
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(108,99,255,0.5); }
+
+.btn-secondary {
+  background: var(--secondary);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255,107,107,0.4);
+}
+.btn-secondary:hover { transform: translateY(-2px); }
+
+.btn-accent {
+  background: var(--accent);
+  color: #0F0E17;
+  font-weight: 700;
+}
+.btn-accent:hover { transform: translateY(-2px); }
+
+.btn-glass {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+.btn-glass:hover { background: rgba(255,255,255,0.2); }
+
+.theme-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.2); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 2rem 80px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(108,99,255,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(78,205,196,0.1) 0%, transparent 50%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.1) rotate(5deg); }
+}
+
+.hero-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(108,99,255,0.2);
+  border: 1px solid rgba(108,99,255,0.4);
+  color: #a29bfe;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .gradient-text {
+  background: linear-gradient(135deg, #6C63FF, #4ECDC4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.hero-search {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-search-field {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+.hero-search-field i { color: rgba(255,255,255,0.5); font-size: 1rem; }
+
+.hero-search-field input {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-search-field input::placeholder { color: rgba(255,255,255,0.4); }
+
+.hero-search .btn { white-space: nowrap; padding: 0.75rem 1.5rem; }
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat .number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.hero-stat .label {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+
+/* Floating cards */
+.hero-visual {
+  position: relative;
+  height: 500px;
+}
+
+.float-card {
+  position: absolute;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  color: #fff;
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-card:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+.float-card:nth-child(2) { top: 35%; right: 5%; animation-delay: -2s; }
+.float-card:nth-child(3) { bottom: 10%; left: 15%; animation-delay: -4s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.float-card .company { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 0.25rem; }
+.float-card .role { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.float-card .meta { display: flex; gap: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); align-items: center; }
+.float-card .tag {
+  background: rgba(108,99,255,0.3);
+  border: 1px solid rgba(108,99,255,0.4);
+  padding: 2px 8px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  color: #a29bfe;
+}
+
+/* Central visual element */
+.hero-center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108,99,255,0.3) 0%, rgba(78,205,196,0.15) 60%, transparent 100%);
+  border: 2px solid rgba(108,99,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.3); }
+  50% { box-shadow: 0 0 0 30px rgba(108,99,255,0); }
+}
+
+.hero-center-circle .inner {
+  text-align: center;
+  color: #fff;
+}
+.hero-center-circle .inner i { font-size: 3rem; color: #6C63FF; margin-bottom: 0.5rem; display: block; }
+.hero-center-circle .inner p { font-size: 0.85rem; font-weight: 600; }
+.hero-center-circle .inner span { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+
+/* ===== SECTIONS ===== */
+.section { padding: 80px 2rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .section-badge { background: rgba(108,99,255,0.2); }
+
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+  background: var(--primary);
+  padding: 60px 2rem;
+}
+
+.stats-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  color: #fff;
+}
+
+.stat-card .number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===== COMPANY LOGOS ===== */
+.companies-section { background: var(--card-bg); }
+
+.companies-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.company-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  min-width: 130px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.company-logo-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.company-logo-card .logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.company-logo-card .company-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.company-logo-card .job-count {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ===== JOB CARDS ===== */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.job-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--gradient);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.job-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.job-card:hover::before { opacity: 1; }
+
+.job-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.job-company-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.job-card-info { flex: 1; }
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.job-company {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.job-save-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.job-save-btn:hover, .job-save-btn.saved { color: var(--secondary); border-color: var(--secondary); }
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.job-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.job-tag.green { background: rgba(16,185,129,0.1); color: #10B981; border-color: rgba(16,185,129,0.3); }
+.job-tag.blue { background: rgba(59,130,246,0.1); color: #3B82F6; border-color: rgba(59,130,246,0.3); }
+.job-tag.purple { background: rgba(108,99,255,0.1); color: var(--primary); border-color: rgba(108,99,255,0.3); }
+
+.job-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.job-salary {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+.job-deadline {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ===== INTERNSHIP CARDS ===== */
+.internship-card {
+  background: linear-gradient(135deg, rgba(108,99,255,0.05) 0%, rgba(78,205,196,0.05) 100%);
+  border: 1px solid rgba(108,99,255,0.2);
+}
+
+.internship-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+/* ===== AI FEATURES ===== */
+.ai-section { background: var(--dark); position: relative; overflow: hidden; }
+.ai-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(108,99,255,0.1) 0%, transparent 60%),
+              radial-gradient(circle at 80% 50%, rgba(78,205,196,0.08) 0%, transparent 60%);
+}
+
+.ai-section .section-title { color: #fff; }
+.ai-section .section-subtitle { color: rgba(255,255,255,0.6); }
+.ai-section .section-badge { background: rgba(108,99,255,0.2); color: #a29bfe; }
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ai-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.ai-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(108,99,255,0.4);
+  transform: translateY(-4px);
+}
+
+.ai-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  background: rgba(108,99,255,0.2);
+}
+
+.ai-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.ai-card p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.ai-card .btn-try {
+  background: rgba(108,99,255,0.2);
+  border: 1px solid rgba(108,99,255,0.4);
+  color: #a29bfe;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ai-card .btn-try:hover { background: var(--primary); color: #fff; }
+
+/* ===== RESUME BUILDER ===== */
+.resume-section { background: var(--surface); }
+
+.resume-builder-ui {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.resume-sidebar {
+  background: var(--dark);
+  padding: 1.5rem;
+}
+
+.resume-sidebar h3 { color: #fff; font-size: 0.9rem; margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.template-list { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.template-item {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  color: rgba(255,255,255,0.8);
+  font-size: 0.85rem;
+}
+
+.template-item.active, .template-item:hover {
+  background: rgba(108,99,255,0.3);
+  border-color: rgba(108,99,255,0.6);
+  color: #fff;
+}
+
+.template-icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+
+.resume-preview {
+  padding: 2rem;
+  background: #f9f9f9;
+}
+
+.resume-doc {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  font-family: 'Inter', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.resume-header-doc {
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume-name { font-size: 1.5rem; font-weight: 800; color: #0F0E17; }
+.resume-role { font-size: 0.9rem; color: var(--primary); font-weight: 600; }
+.resume-contacts { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.75rem; color: #6B7280; flex-wrap: wrap; }
+.resume-section-title { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); border-left: 3px solid var(--primary); padding-left: 0.75rem; margin: 1rem 0 0.5rem; }
+.resume-item { margin-bottom: 0.75rem; }
+.resume-item-title { font-size: 0.9rem; font-weight: 700; color: #0F0E17; }
+.resume-item-sub { font-size: 0.8rem; color: #6B7280; }
+.skills-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-chip { background: var(--primary-light); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+
+/* ===== SEARCH PAGE ===== */
+.search-page-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  padding-top: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.filter-sidebar {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+}
+
+.filter-group { margin-bottom: 1.5rem; }
+.filter-group h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.filter-options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.3rem 0;
+  transition: var(--transition);
+}
+
+.filter-option:hover { color: var(--primary); }
+.filter-option input[type="checkbox"] { accent-color: var(--primary); }
+
+.search-bar-sticky {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.search-bar-sticky input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.search-bar-sticky i { color: var(--text-muted); }
+.sort-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.dashboard-sidebar {
+  background: var(--card-bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.profile-mini {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0 auto 0.75rem;
+  font-weight: 700;
+}
+
+.profile-name { font-weight: 700; font-size: 0.95rem; color: var(--text); }
+.profile-role { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+.profile-completion {
+  background: var(--surface);
+  border-radius: 50px;
+  height: 6px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.profile-completion-fill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 50px;
+  width: 72%;
+}
+
+.completion-text { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+.sidebar-nav { list-style: none; }
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 0.2rem;
+}
+
+.sidebar-nav li a:hover, .sidebar-nav li a.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .sidebar-nav li a.active, [data-theme="dark"] .sidebar-nav li a:hover {
+  background: rgba(108,99,255,0.2);
+}
+
+.sidebar-nav li a i { width: 20px; font-size: 1rem; }
+
+.sidebar-badge {
+  margin-left: auto;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 50px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.dashboard-main { padding: 2rem; background: var(--surface); }
+
+.dashboard-welcome {
+  background: var(--gradient);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-welcome h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-welcome p { opacity: 0.85; font-size: 0.9rem; }
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.dash-stat {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dash-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.dash-stat .number { font-size: 1.5rem; font-weight: 800; color: var(--text); display: block; }
+.dash-stat .label { font-size: 0.78rem; color: var(--text-muted); }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.card-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+.application-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.application-item:last-child { border-bottom: none; }
+
+.app-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.app-info { flex: 1; }
+.app-role { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+.app-company { font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-badge.pending { background: rgba(245,158,11,0.1); color: var(--warning); }
+.status-badge.reviewed { background: rgba(59,130,246,0.1); color: #3B82F6; }
+.status-badge.shortlisted { background: rgba(16,185,129,0.1); color: var(--success); }
+.status-badge.rejected { background: rgba(239,68,68,0.1); color: var(--error); }
+
+.notification-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.notif-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.notif-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+.notif-time { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem; }
+.notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); margin-top: 0.25rem; flex-shrink: 0; }
+
+/* ===== AUTH PAGES ===== */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-visual {
+  background: var(--gradient-hero);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(108,99,255,0.2) 0%, transparent 60%);
+}
+
+.auth-visual-content { position: relative; z-index: 1; text-align: center; }
+.auth-visual h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.auth-visual p { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.7; }
+
+.auth-features { margin-top: 2.5rem; text-align: left; }
+.auth-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+.auth-feature i { color: var(--accent); font-size: 1rem; }
+
+.auth-form-area {
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.auth-form { width: 100%; max-width: 420px; }
+.auth-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.auth-subtitle { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 2rem; }
+
+.form-group { margin-bottom: 1.25rem; }
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.form-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+  outline: none;
+}
+.form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(108,99,255,0.15); }
+
+.form-input-icon {
+  position: relative;
+}
+.form-input-icon i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.form-input-icon .form-input { padding-left: 2.5rem; }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.social-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text);
+  background: var(--surface);
+  font-family: 'Inter', sans-serif;
+}
+.social-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+.social-btn i { font-size: 1rem; }
+.fa-google { color: #EA4335; }
+.fa-linkedin { color: #0A66C2; }
+
+.auth-switch { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.auth-switch a { color: var(--primary); cursor: pointer; font-weight: 600; text-decoration: none; }
+
+/* ===== COMMUNITY & BLOG ===== */
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.community-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.community-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); border-color: var(--primary); }
+
+.community-card-header { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.75rem; }
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.author-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+.post-time { font-size: 0.75rem; color: var(--text-muted); }
+.post-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+.post-excerpt { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+.post-footer { display: flex; align-items: center; gap: 1rem; }
+.post-stat { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-muted); }
+.post-category {
+  margin-left: auto;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+[data-theme="dark"] .post-category { background: rgba(108,99,255,0.2); }
+
+/* ===== ABOUT / FOUNDER ===== */
+.founder-section {
+  background: var(--gradient-hero);
+  padding: 100px 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 70% 50%, rgba(108,99,255,0.15) 0%, transparent 60%);
+}
+
+.founder-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.founder-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.founder-avatar-wrap {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  position: relative;
+}
+
+.founder-avatar-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--gradient) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.founder-name { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.4rem; }
+.founder-title { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+
+.founder-badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.founder-badge {
+  background: rgba(108,99,255,0.3);
+  border: 1px solid rgba(108,99,255,0.5);
+  color: #a29bfe;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.founder-socials { display: flex; gap: 0.75rem; justify-content: center; }
+.founder-social {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.85rem;
+}
+.founder-social:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.founder-story h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.founder-story p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem; }
+
+.founder-quote {
+  background: rgba(108,99,255,0.15);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  background: var(--gradient);
+  border-radius: 24px;
+  padding: 3rem;
+  color: #fff;
+}
+
+.contact-info-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+.contact-info-card p { opacity: 0.85; line-height: 1.7; margin-bottom: 2rem; }
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.contact-detail-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.contact-detail-text .label { font-size: 0.75rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.05em; }
+.contact-detail-text .value { font-size: 0.9rem; font-weight: 600; }
+
+.contact-form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.contact-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+.contact-tab {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-tab.active { background: var(--card-bg); color: var(--primary); box-shadow: var(--shadow-sm); }
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark);
+  padding: 60px 2rem 0;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer-brand .nav-logo { font-size: 1.8rem; }
+.footer-brand p { font-size: 0.85rem; line-height: 1.7; margin: 1rem 0 1.5rem; color: rgba(255,255,255,0.5); max-width: 280px; }
+
+.footer-social { display: flex; gap: 0.5rem; }
+.footer-social-btn {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.85rem;
+}
+.footer-social-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.footer-col h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.footer-col ul li a:hover { color: #fff; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-bottom a { color: rgba(255,255,255,0.6); text-decoration: none; }
+.footer-bottom a:hover { color: #fff; }
+
+/* ===== SHARE MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 480px;
+  transform: scale(0.9);
+  transition: var(--transition);
+}
+
+.modal-overlay.active .modal { transform: scale(1); }
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.modal-title { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+.modal-close {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.share-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.share-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--surface);
+}
+.share-option:hover { border-color: var(--primary); background: var(--primary-light); }
+[data-theme="dark"] .share-option:hover { background: rgba(108,99,255,0.15); }
+.share-option i { font-size: 1.5rem; }
+.share-option span { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+.fa-whatsapp { color: #25D366; }
+.fa-facebook { color: #1877F2; }
+.share-link-copy {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+.share-link-copy span { flex: 1; font-size: 0.8rem; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copy-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.copy-btn:hover { background: var(--primary-dark); }
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--dark);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 9999;
+  font-size: 0.875rem;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast i { color: var(--success); font-size: 1rem; }
+
+/* ===== BLOG ===== */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.blog-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+
+.blog-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+.blog-content { padding: 1.25rem; }
+.blog-cat {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+[data-theme="dark"] .blog-cat { background: rgba(108,99,255,0.2); }
+.blog-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; }
+.blog-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+.blog-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: var(--gradient);
+  padding: 80px 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 60%);
+}
+.cta-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cta-section p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 2.5rem; position: relative; }
+.cta-section .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ===== MOBILE HAMBURGER ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition); }
+
+/* ===== SUCCESS STORIES ===== */
+.success-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.success-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.success-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+.success-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -10px;
+  right: 1.5rem;
+  font-size: 6rem;
+  color: rgba(108,99,255,0.1);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+.success-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+.success-author { display: flex; align-items: center; gap: 0.75rem; }
+.success-author .avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+.success-author .info .name { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+.success-author .info .role { font-size: 0.75rem; color: var(--text-muted); }
+.stars { color: #F59E0B; font-size: 0.75rem; margin-bottom: 0.25rem; }
+
+/* ===== EMPLOYER DASHBOARD ===== */
+.employer-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.employer-card .applicant-count {
+  margin-left: auto;
+  text-align: right;
+}
+.applicant-count .num { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: block; }
+.applicant-count .lbl { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== ADMIN PANEL ===== */
+.admin-metric {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.admin-metric .value { font-size: 2rem; font-weight: 900; color: var(--text); }
+.admin-metric .change { font-size: 0.75rem; margin-top: 0.25rem; }
+.change.up { color: var(--success); }
+.change.down { color: var(--error); }
+
+.progress-bar {
+  background: var(--surface);
+  border-radius: 50px;
+  height: 8px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 50px;
+  background: var(--gradient);
+}
+
+/* ===== ACTIVE NAV INDICATOR ===== */
+.nav-links a.active-nav { color: #fff; position: relative; }
+.nav-links a.active-nav::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+  .founder-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .dashboard-layout { grid-template-columns: 1fr; }
+  .dashboard-sidebar { display: none; }
+  .search-page-layout { grid-template-columns: 1fr; }
+  .filter-sidebar { display: none; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .dashboard-stats { grid-template-columns: repeat(2, 1fr); }
+  .resume-builder-ui { grid-template-columns: 1fr; }
+  .resume-sidebar { display: none; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+
+@media (max-width: 600px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .dashboard-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-search { flex-direction: column; }
+  nav { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" onclick="showPage('home')">Tishu<span>Jobs</span></a>
+
+  <ul class="nav-links">
+    <li><a onclick="showPage('jobs')" class="nav-link">Find Jobs</a></li>
+    <li><a onclick="showPage('internships')" class="nav-link">Internships</a></li>
+    <li><a onclick="showPage('companies')" class="nav-link">Companies</a></li>
+    <li><a onclick="showPage('resume')" class="nav-link">Resume Builder</a></li>
+    <li><a onclick="showPage('community')" class="nav-link">Community</a></li>
+    <li><a onclick="showPage('blog')" class="nav-link">Blog</a></li>
+    <li><a onclick="showPage('about')" class="nav-link">About</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    <button class="btn btn-outline" onclick="showPage('login')">Log In</button>
+    <button class="btn btn-primary" onclick="showPage('signup')">Sign Up Free</button>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================== HOME PAGE ======================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-star"></i>
+          India's #1 Platform for Freshers
+        </div>
+
+        <h1>
+          Your Dream Career<br>
+          Starts <span class="gradient-text">Right Here</span>
+        </h1>
+
+        <p>TishuJobs connects freshers, students & graduates with top internships and entry-level opportunities across India. Built by a fresher, for freshers.</p>
+
+        <div class="hero-search">
+          <div class="hero-search-field">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Job title, skills, or keyword" id="hero-job-search">
+          </div>
+          <div class="hero-search-field">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="City or Remote">
+          </div>
+          <button class="btn btn-primary" onclick="showPage('jobs')">
+            <i class="fas fa-search"></i> Search Jobs
+          </button>
+        </div>
+
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:1.5rem;">
+          Popular: <span style="color:rgba(255,255,255,0.6); cursor:pointer" onclick="showPage('jobs')">Software Developer</span> · 
+          <span style="color:rgba(255,255,255,0.6); cursor:pointer" onclick="showPage('internships')">Data Science Intern</span> · 
+          <span style="color:rgba(255,255,255,0.6); cursor:pointer" onclick="showPage('jobs')">UI/UX Designer</span>
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="number" data-count="50000">50K+</div>
+            <div class="label">Active Jobs</div>
+          </div>
+          <div class="hero-stat">
+            <div class="number">10K+</div>
+            <div class="label">Companies</div>
+          </div>
+          <div class="hero-stat">
+            <div class="number">500K+</div>
+            <div class="label">Students</div>
+          </div>
+          <div class="hero-stat">
+            <div class="number">95%</div>
+            <div class="label">Placement Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="float-card" style="min-width:220px">
+          <div class="company">Google India</div>
+          <div class="role">Junior Software Engineer</div>
+          <div class="meta">
+            <i class="fas fa-map-marker-alt"></i> Bangalore
+            <span class="tag">₹8–12 LPA</span>
+          </div>
+        </div>
+
+        <div class="float-card" style="min-width:210px">
+          <div class="company">Razorpay</div>
+          <div class="role">Frontend Developer Intern</div>
+          <div class="meta">
+            <i class="fas fa-laptop-house"></i> Remote
+            <span class="tag">₹25K/mo</span>
+          </div>
+        </div>
+
+        <div class="float-card" style="min-width:230px">
+          <div class="company">Swiggy</div>
+          <div class="role">Data Analyst — Fresher</div>
+          <div class="meta">
+            <i class="fas fa-map-marker-alt"></i> Hyderabad
+            <span class="tag">₹6–8 LPA</span>
+          </div>
+        </div>
+
+        <div class="hero-center-circle">
+          <div class="inner">
+            <i class="fas fa-briefcase"></i>
+            <p>1,247 New Jobs</p>
+            <span>Added today</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="number counter" data-target="50000">0</span>
+        <div class="label">Active Job Listings</div>
+      </div>
+      <div class="stat-card">
+        <span class="number counter" data-target="10000">0</span>
+        <div class="label">Partner Companies</div>
+      </div>
+      <div class="stat-card">
+        <span class="number counter" data-target="500000">0</span>
+        <div class="label">Students Registered</div>
+      </div>
+      <div class="stat-card">
+        <span class="number counter" data-target="12000">0</span>
+        <div class="label">Successful Placements</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING COMPANIES -->
+  <section class="section companies-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-fire"></i> Trending</div>
+        <h2 class="section-title">Top Companies Hiring Freshers</h2>
+        <p class="section-subtitle">Join India's most innovative companies. All companies below are actively hiring entry-level talent.</p>
+      </div>
+      <div class="companies-scroll">
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#4285F4,#34A853)">G</div>
+          <div class="company-name">Google</div>
+          <div class="job-count">24 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#FF6900,#FF9500)">Az</div>
+          <div class="company-name">Amazon</div>
+          <div class="job-count">38 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:#0078D4">Ms</div>
+          <div class="company-name">Microsoft</div>
+          <div class="job-count">19 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#FC5A03,#FFCD00)">Sw</div>
+          <div class="company-name">Swiggy</div>
+          <div class="job-count">31 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#0147FF,#00B4D8)">Rz</div>
+          <div class="company-name">Razorpay</div>
+          <div class="job-count">15 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#1F2544,#474F7A)">Zp</div>
+          <div class="company-name">Zepto</div>
+          <div class="job-count">22 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#00B386,#00875A)">In</div>
+          <div class="company-name">Infosys</div>
+          <div class="job-count">120 openings</div>
+        </div>
+        <div class="company-logo-card" onclick="showPage('jobs')">
+          <div class="logo-icon" style="background:linear-gradient(135deg,#E91E63,#9C27B0)">Fl</div>
+          <div class="company-name">Flipkart</div>
+          <div class="job-count">45 openings</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST JOBS -->
+  <section class="section" style="background:var(--surface)">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-clock"></i> Latest</div>
+        <h2 class="section-title">Fresh Jobs Posted Today</h2>
+        <p class="section-subtitle">Discover the latest opportunities matched for freshers and recent graduates.</p>
+      </div>
+      <div class="jobs-grid">
+        <!-- Job cards -->
+        <div class="job-card" onclick="openShareModal('Software Developer at TCS')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#1F4FFF,#00B4D8)">T</div>
+            <div class="job-card-info">
+              <div class="job-title">Software Developer</div>
+              <div class="job-company">Tata Consultancy Services</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Pune</span>
+            <span class="job-tag"><i class="fas fa-briefcase"></i> 0–1 yr</span>
+            <span class="job-tag purple"><i class="fas fa-graduation-cap"></i> BE/BTech</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹3.5 – 5.5 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 30 Jul</span>
+          </div>
+        </div>
+
+        <div class="job-card" onclick="openShareModal('React Developer at Razorpay')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#0147FF,#00B4D8)">R</div>
+            <div class="job-card-info">
+              <div class="job-title">Junior React Developer</div>
+              <div class="job-company">Razorpay</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-laptop-house"></i> Remote</span>
+            <span class="job-tag"><i class="fas fa-briefcase"></i> Fresher</span>
+            <span class="job-tag purple"><i class="fas fa-code"></i> React, JS</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹6 – 9 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 15 Jul</span>
+          </div>
+        </div>
+
+        <div class="job-card" onclick="openShareModal('Data Analyst at Swiggy')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#FC5A03,#FFCD00)">S</div>
+            <div class="job-card-info">
+              <div class="job-title">Data Analyst — Fresher</div>
+              <div class="job-company">Swiggy</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+            <span class="job-tag"><i class="fas fa-chart-bar"></i> 0 yr</span>
+            <span class="job-tag purple"><i class="fas fa-database"></i> SQL, Python</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹5 – 7 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 25 Jul</span>
+          </div>
+        </div>
+
+        <div class="job-card" onclick="openShareModal('UI/UX Designer at Zepto')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#1F2544,#474F7A)">Z</div>
+            <div class="job-card-info">
+              <div class="job-title">UI/UX Designer</div>
+              <div class="job-company">Zepto</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+            <span class="job-tag"><i class="fas fa-briefcase"></i> 0–2 yr</span>
+            <span class="job-tag purple"><i class="fas fa-pencil-ruler"></i> Figma</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹4 – 7 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 5 Aug</span>
+          </div>
+        </div>
+
+        <div class="job-card" onclick="openShareModal('Backend Dev at Zomato')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#E23744,#FF6B6B)">Zo</div>
+            <div class="job-card-info">
+              <div class="job-title">Backend Developer</div>
+              <div class="job-company">Zomato</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Gurgaon</span>
+            <span class="job-tag"><i class="fas fa-briefcase"></i> 0–1 yr</span>
+            <span class="job-tag purple"><i class="fas fa-server"></i> Node.js</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹7 – 10 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 10 Aug</span>
+          </div>
+        </div>
+
+        <div class="job-card" onclick="openShareModal('Android Dev at Paytm')">
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#00BAF2,#0052CC)">P</div>
+            <div class="job-card-info">
+              <div class="job-title">Android Developer</div>
+              <div class="job-company">Paytm</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Noida</span>
+            <span class="job-tag"><i class="fas fa-briefcase"></i> Fresher OK</span>
+            <span class="job-tag purple"><i class="fab fa-android"></i> Kotlin</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹5 – 8 LPA</span>
+            <span class="job-deadline"><i class="fas fa-clock"></i> Apply by 20 Jul</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-primary" onclick="showPage('jobs')" style="padding:0.875rem 2.5rem;font-size:1rem">
+          View All 50,000+ Jobs <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED INTERNSHIPS -->
+  <section class="section" style="background:var(--card-bg)">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-rocket"></i> Internships</div>
+        <h2 class="section-title">Internships That Launch Careers</h2>
+        <p class="section-subtitle">Paid, remote, and campus internships across tech, design, marketing and more.</p>
+      </div>
+      <div class="jobs-grid">
+        <div class="job-card internship-card" onclick="showPage('internships')">
+          <div class="internship-badge"><i class="fas fa-rupee-sign"></i> Paid Internship</div>
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#6C63FF,#4ECDC4)">Ms</div>
+            <div class="job-card-info">
+              <div class="job-title">Software Engineering Intern</div>
+              <div class="job-company">Microsoft India</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag blue"><i class="fas fa-laptop-house"></i> Remote</span>
+            <span class="job-tag"><i class="fas fa-calendar"></i> 6 Months</span>
+            <span class="job-tag purple"><i class="fas fa-code"></i> C#, Azure</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹40,000/month</span>
+            <span class="job-deadline">PPO Available</span>
+          </div>
+        </div>
+
+        <div class="job-card internship-card" onclick="showPage('internships')">
+          <div class="internship-badge"><i class="fas fa-university"></i> Campus Internship</div>
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#FF6B6B,#E91E63)">F</div>
+            <div class="job-card-info">
+              <div class="job-title">Product Management Intern</div>
+              <div class="job-company">Flipkart</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+            <span class="job-tag"><i class="fas fa-calendar"></i> 3 Months</span>
+            <span class="job-tag purple"><i class="fas fa-project-diagram"></i> PM Skills</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹35,000/month</span>
+            <span class="job-deadline">Certificate + PPO</span>
+          </div>
+        </div>
+
+        <div class="job-card internship-card" onclick="showPage('internships')">
+          <div class="internship-badge"><i class="fas fa-bolt"></i> Startup Internship</div>
+          <div class="job-card-header">
+            <div class="job-company-logo" style="background:linear-gradient(135deg,#FFE66D,#FF6B6B)">Cu</div>
+            <div class="job-card-info">
+              <div class="job-title">AI/ML Research Intern</div>
+              <div class="job-company">CureSkin (Startup)</div>
+            </div>
+            <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+          </div>
+          <div class="job-tags">
+            <span class="job-tag blue"><i class="fas fa-laptop-house"></i> Remote</span>
+            <span class="job-tag"><i class="fas fa-calendar"></i> 4 Months</span>
+            <span class="job-tag purple"><i class="fas fa-robot"></i> Python, ML</span>
+          </div>
+          <div class="job-footer">
+            <span class="job-salary">₹20,000/month</span>
+            <span class="job-deadline">Stipend + Equity</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-primary" onclick="showPage('internships')" style="padding:0.875rem 2.5rem;font-size:1rem">
+          Explore All Internships <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI FEATURES -->
+  <section class="section ai-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-magic"></i> AI-Powered</div>
+        <h2 class="section-title" style="color:#fff">Your AI Career Coach</h2>
+        <p class="section-subtitle">Leverage cutting-edge AI tools to accelerate your career journey.</p>
+      </div>
+      <div class="ai-grid">
+        <div class="ai-card">
+          <div class="ai-icon" style="background:rgba(108,99,255,0.2)"><i class="fas fa-file-alt" style="color:#6C63FF"></i></div>
+          <h3>AI Resume Review</h3>
+          <p>Get instant AI feedback on your resume. Improve ATS score, fix weaknesses, and stand out to recruiters.</p>
+          <button class="btn-try" onclick="showPage('resume')"><i class="fas fa-arrow-right"></i> Try Now</button>
+        </div>
+        <div class="ai-card">
+          <div class="ai-icon" style="background:rgba(78,205,196,0.2)"><i class="fas fa-comments" style="color:#4ECDC4"></i></div>
+          <h3>AI Interview Prep</h3>
+          <p>Practice with AI-generated interview questions tailored to your role and company. Real-time feedback included.</p>
+          <button class="btn-try" onclick="showPage('dashboard')"><i class="fas fa-arrow-right"></i> Practice Now</button>
+        </div>
+        <div class="ai-card">
+          <div class="ai-icon" style="background:rgba(255,230,109,0.2)"><i class="fas fa-lightbulb" style="color:#FFE66D"></i></div>
+          <h3>AI Skill Suggestions</h3>
+          <p>Discover which skills are most in-demand for your target role and get a personalised learning path.</p>
+          <button class="btn-try" onclick="showPage('dashboard')"><i class="fas fa-arrow-right"></i> Get Suggestions</button>
+        </div>
+        <div class="ai-card">
+          <div class="ai-icon" style="background:rgba(255,107,107,0.2)"><i class="fas fa-road" style="color:#FF6B6B"></i></div>
+          <h3>Career Roadmap</h3>
+          <p>Get a step-by-step career roadmap from where you are now to your dream job, powered by AI.</p>
+          <button class="btn-try" onclick="showPage('dashboard')"><i class="fas fa-arrow-right"></i> Generate Roadmap</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section class="section" style="background:var(--surface)">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-badge"><i class="fas fa-trophy"></i> Success Stories</div>
+        <h2 class="section-title">Freshers Who Made It</h2>
+        <p class="section-subtitle">Real students, real jobs, real success. Their journey started right here on TishuJobs.</p>
+      </div>
+      <div class="success-grid">
+        <div class="success-card">
+          <div class="stars">★★★★★</div>
+          <p class="success-text">"I had been applying everywhere for 4 months with zero response. TishuJobs changed everything. The AI resume review boosted my ATS score by 40%. Got my dream job at Google within 3 weeks!"</p>
+          <div class="success-author">
+            <div class="avatar">A</div>
+            <div class="info">
+              <div class="name">Ananya Sharma</div>
+              <div class="role">Software Engineer @ Google · Delhi University</div>
+            </div>
+          </div>
+        </div>
+        <div class="success-card">
+          <div class="stars">★★★★★</div>
+          <p class="success-text">"The interview prep feature is gold. I practiced mock interviews with the AI for 2 weeks and cracked the Amazon SDE-1 interview on my first attempt. Highly recommend TishuJobs to every fresher!"</p>
+          <div class="success-author">
+            <div class="avatar">R</div>
+            <div class="info">
+              <div class="name">Rohit Verma</div>
+              <div class="role">SDE-1 @ Amazon · IIT Kharagpur</div>
+            </div>
+          </div>
+        </div>
+        <div class="success-card">
+          <div class="stars">★★★★★</div>
+          <p class="success-text">"As a non-CS student, I thought tech was out of reach. TishuJobs showed me there are roles for everyone. Used the career roadmap feature and landed a PM internship at Flipkart. Life-changing platform!"</p>
+          <div class="success-author">
+            <div class="avatar">P</div>
+            <div class="info">
+              <div class="name">Priya Nair</div>
+              <div class="role">Product Manager @ Flipkart · BITS Pilani</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to Start Your Career Journey?</h2>
+    <p>Join 500,000+ freshers who trust TishuJobs to land their first job or internship.</p>
+    <div class="cta-btns">
+      <button class="btn" onclick="showPage('signup')" style="background:#fff;color:var(--primary);font-weight:700;font-size:1rem;padding:1rem 2rem">
+        <i class="fas fa-user-plus"></i> Create Free Account
+      </button>
+      <button class="btn btn-glass" onclick="showPage('jobs')" style="font-size:1rem;padding:1rem 2rem">
+        <i class="fas fa-search"></i> Browse Jobs
+      </button>
+    </div>
+  </section>
+
+</div><!-- /home -->
+
+<!-- ======================== JOBS PAGE ======================== -->
+<div id="page-jobs" class="page">
+  <div class="search-page-layout">
+    <!-- Filter Sidebar -->
+    <aside class="filter-sidebar">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--text)">Filters</h3>
+        <button style="background:none;border:none;color:var(--primary);font-size:0.8rem;font-weight:600;cursor:pointer" onclick="clearFilters()">Clear All</button>
+      </div>
+
+      <div class="filter-group">
+        <h4>Experience Level</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" checked> Fresher (0 yrs)</label>
+          <label class="filter-option"><input type="checkbox"> 0–1 Year</label>
+          <label class="filter-option"><input type="checkbox"> 1–2 Years</label>
+          <label class="filter-option"><input type="checkbox"> 2+ Years</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Job Type</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" checked> Full-time</label>
+          <label class="filter-option"><input type="checkbox"> Part-time</label>
+          <label class="filter-option"><input type="checkbox"> Internship</label>
+          <label class="filter-option"><input type="checkbox"> Contract</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Work Mode</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" checked> Remote</label>
+          <label class="filter-option"><input type="checkbox" checked> Hybrid</label>
+          <label class="filter-option"><input type="checkbox"> On-site</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Salary Range (LPA)</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox"> Below ₹3 LPA</label>
+          <label class="filter-option"><input type="checkbox" checked> ₹3–6 LPA</label>
+          <label class="filter-option"><input type="checkbox"> ₹6–10 LPA</label>
+          <label class="filter-option"><input type="checkbox"> ₹10+ LPA</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Skills</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" checked> JavaScript</label>
+          <label class="filter-option"><input type="checkbox"> Python</label>
+          <label class="filter-option"><input type="checkbox"> React</label>
+          <label class="filter-option"><input type="checkbox"> Java</label>
+          <label class="filter-option"><input type="checkbox"> SQL</label>
+          <label class="filter-option"><input type="checkbox"> Node.js</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Location</h4>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox"> Bangalore</label>
+          <label class="filter-option"><input type="checkbox" checked> Remote</label>
+          <label class="filter-option"><input type="checkbox"> Hyderabad</label>
+          <label class="filter-option"><input type="checkbox"> Pune</label>
+          <label class="filter-option"><input type="checkbox"> Delhi/NCR</label>
+          <label class="filter-option"><input type="checkbox"> Mumbai</label>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;justify-content:center">Apply Filters</button>
+    </aside>
+
+    <!-- Jobs Results -->
+    <main>
+      <div class="search-bar-sticky">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search jobs, skills, company...">
+        <select class="sort-select">
+          <option>Most Relevant</option>
+          <option>Newest First</option>
+          <option>Highest Salary</option>
+          <option>Most Applied</option>
+        </select>
+      </div>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem">Showing <strong style="color:var(--text)">4,328</strong> jobs matching your filters</p>
+      <div class="jobs-grid" id="jobs-results">
+        <!-- Populated by JS -->
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <button class="btn btn-outline" onclick="loadMoreJobs()" style="color:var(--text);border-color:var(--border);padding:0.875rem 2rem">
+          <i class="fas fa-spinner"></i> Load More Jobs
+        </button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ======================== INTERNSHIPS PAGE ======================== -->
+<div id="page-internships" class="page">
+  <div style="padding-top:90px;max-width:1200px;margin:0 auto;padding-bottom:3rem;padding-left:1rem;padding-right:1rem">
+    <div class="section-header" style="margin-bottom:2rem">
+      <div class="section-badge"><i class="fas fa-rocket"></i> Internships</div>
+      <h2 class="section-title">Find Your Perfect Internship</h2>
+      <p class="section-subtitle">Paid, remote, campus and startup internships for students and freshers.</p>
+    </div>
+
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem">
+      <button class="btn btn-primary">All Internships</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fas fa-rupee-sign"></i> Paid</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fas fa-laptop-house"></i> Remote</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fas fa-university"></i> Campus</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)"><i class="fas fa-bolt"></i> Startup</button>
+    </div>
+
+    <div class="jobs-grid">
+      <div class="job-card internship-card" onclick="openShareModal('Data Science Intern at Flipkart')">
+        <div class="internship-badge"><i class="fas fa-rupee-sign"></i> Paid · ₹30,000/mo</div>
+        <div class="job-card-header">
+          <div class="job-company-logo" style="background:linear-gradient(135deg,#E91E63,#9C27B0)">F</div>
+          <div class="job-card-info">
+            <div class="job-title">Data Science Intern</div>
+            <div class="job-company">Flipkart</div>
+          </div>
+          <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag blue"><i class="fas fa-laptop-house"></i> Remote</span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> 6 Months</span>
+          <span class="job-tag purple">Python, ML</span>
+        </div>
+        <div class="job-footer">
+          <span class="job-salary">PPO Offered</span>
+          <span class="job-deadline">50 slots left</span>
+        </div>
+      </div>
+
+      <div class="job-card internship-card" onclick="openShareModal('Frontend Intern at Zomato')">
+        <div class="internship-badge"><i class="fas fa-laptop-house"></i> Remote Internship</div>
+        <div class="job-card-header">
+          <div class="job-company-logo" style="background:linear-gradient(135deg,#E23744,#FF6B6B)">Zo</div>
+          <div class="job-card-info">
+            <div class="job-title">Frontend Intern (React)</div>
+            <div class="job-company">Zomato</div>
+          </div>
+          <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag blue"><i class="fas fa-laptop-house"></i> Remote</span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> 3 Months</span>
+          <span class="job-tag purple">React, TypeScript</span>
+        </div>
+        <div class="job-footer">
+          <span class="job-salary">₹20,000/month</span>
+          <span class="job-deadline">Certificate Provided</span>
+        </div>
+      </div>
+
+      <div class="job-card internship-card" onclick="openShareModal('Design Intern at CRED')">
+        <div class="internship-badge"><i class="fas fa-bolt"></i> Startup</div>
+        <div class="job-card-header">
+          <div class="job-company-logo" style="background:linear-gradient(135deg,#1A1930,#6C63FF)">C</div>
+          <div class="job-card-info">
+            <div class="job-title">Product Design Intern</div>
+            <div class="job-company">CRED</div>
+          </div>
+          <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+        </div>
+        <div class="job-tags">
+          <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+          <span class="job-tag"><i class="fas fa-calendar"></i> 4 Months</span>
+          <span class="job-tag purple">Figma, Prototyping</span>
+        </div>
+        <div class="job-footer">
+          <span class="job-salary">₹25,000/month</span>
+          <span class="job-deadline">Equity Option</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== RESUME BUILDER ======================== -->
+<div id="page-resume" class="page">
+  <div style="padding-top:90px;max-width:1200px;margin:0 auto;padding:90px 1rem 3rem">
+    <div class="section-header" style="margin-bottom:2rem">
+      <div class="section-badge"><i class="fas fa-file-alt"></i> Resume Builder</div>
+      <h2 class="section-title">Build an ATS-Friendly Resume</h2>
+      <p class="section-subtitle">Choose from professional templates and download your resume as PDF instantly.</p>
+    </div>
+
+    <div class="resume-builder-ui">
+      <div class="resume-sidebar">
+        <h3>Templates</h3>
+        <div class="template-list">
+          <div class="template-item active" onclick="selectTemplate(this,'classic')">
+            <span class="template-icon">📄</span>
+            <strong>Classic Pro</strong><br>
+            <small style="color:rgba(255,255,255,0.5)">Clean, ATS-optimized</small>
+          </div>
+          <div class="template-item" onclick="selectTemplate(this,'modern')">
+            <span class="template-icon">🎨</span>
+            <strong>Modern Bold</strong><br>
+            <small style="color:rgba(255,255,255,0.5)">Creative & eye-catching</small>
+          </div>
+          <div class="template-item" onclick="selectTemplate(this,'minimal')">
+            <span class="template-icon">✏️</span>
+            <strong>Minimal</strong><br>
+            <small style="color:rgba(255,255,255,0.5)">Simple & elegant</small>
+          </div>
+          <div class="template-item" onclick="selectTemplate(this,'executive')">
+            <span class="template-icon">💼</span>
+            <strong>Executive</strong><br>
+            <small style="color:rgba(255,255,255,0.5)">Senior/leadership roles</small>
+          </div>
+        </div>
+        <div style="margin-top:2rem">
+          <h3>Tools</h3>
+          <div style="display:flex;flex-direction:column;gap:0.5rem">
+            <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="showToast('AI Resume Review started!')"><i class="fas fa-magic"></i> AI Review</button>
+            <button class="btn btn-glass" style="width:100%;justify-content:center;margin-top:0.5rem" onclick="showToast('Downloading PDF...')"><i class="fas fa-download"></i> Download PDF</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-preview">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+          <p style="font-size:0.85rem;color:var(--text-muted)"><i class="fas fa-eye"></i> Live Preview</p>
+          <div style="display:flex;gap:0.5rem">
+            <button class="btn btn-primary" style="padding:0.4rem 1rem;font-size:0.8rem" onclick="showToast('PDF downloaded successfully!')"><i class="fas fa-download"></i> Download PDF</button>
+            <button class="btn btn-outline" style="padding:0.4rem 1rem;font-size:0.8rem;color:var(--text-muted);border-color:var(--border)" onclick="openShareModal('My Resume')"><i class="fas fa-share-alt"></i> Share</button>
+          </div>
+        </div>
+        <div class="resume-doc">
+          <div class="resume-header-doc">
+            <div class="resume-name">Rahul Kumar Sharma</div>
+            <div class="resume-role">Full Stack Developer | B.Tech CSE 2024</div>
+            <div class="resume-contacts">
+              <span><i class="fas fa-envelope"></i> rahul@email.com</span>
+              <span><i class="fas fa-phone"></i> +91 98765 43210</span>
+              <span><i class="fab fa-linkedin"></i> linkedin.com/in/rahul</span>
+              <span><i class="fas fa-map-marker-alt"></i> Bangalore, India</span>
+            </div>
+          </div>
+          <div class="resume-section-title">Education</div>
+          <div class="resume-item">
+            <div class="resume-item-title">B.Tech in Computer Science — CGPA: 8.7</div>
+            <div class="resume-item-sub">XYZ Engineering College, Pune · 2020–2024</div>
+          </div>
+          <div class="resume-section-title">Skills</div>
+          <div class="skills-list">
+            <span class="skill-chip">React.js</span><span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Python</span><span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">TypeScript</span><span class="skill-chip">AWS</span>
+            <span class="skill-chip">Git</span><span class="skill-chip">REST API</span>
+          </div>
+          <div class="resume-section-title">Projects</div>
+          <div class="resume-item">
+            <div class="resume-item-title">E-Commerce Platform — React + Node + PostgreSQL</div>
+            <div class="resume-item-sub">Built a full-stack shopping platform with JWT auth, payment gateway, and admin dashboard. 500+ users.</div>
+          </div>
+          <div class="resume-item">
+            <div class="resume-item-title">AI Chatbot — Python, FastAPI, OpenAI</div>
+            <div class="resume-item-sub">Developed context-aware chatbot with 90% accuracy. Integrated with WhatsApp Business API.</div>
+          </div>
+          <div class="resume-section-title">Certifications</div>
+          <div class="resume-item">
+            <div class="resume-item-title">AWS Certified Developer Associate · Google Data Analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== DASHBOARD ======================== -->
+<div id="page-dashboard" class="page">
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <div class="dashboard-sidebar">
+      <div class="profile-mini">
+        <div class="profile-avatar">TK</div>
+        <div class="profile-name">Tishu Kumar</div>
+        <div class="profile-role">Aspiring Software Developer</div>
+        <div class="profile-completion">
+          <div class="profile-completion-fill"></div>
+        </div>
+        <div class="completion-text">Profile 72% complete — <a href="#" style="color:var(--primary)">add more</a></div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li><a class="active" onclick="showDashTab('overview')"><i class="fas fa-th-large"></i> Overview</a></li>
+        <li><a onclick="showDashTab('profile')"><i class="fas fa-user"></i> My Profile</a></li>
+        <li><a onclick="showDashTab('applications')"><i class="fas fa-file-alt"></i> Applications <span class="sidebar-badge">5</span></a></li>
+        <li><a onclick="showDashTab('saved')"><i class="fas fa-bookmark"></i> Saved Jobs <span class="sidebar-badge">12</span></a></li>
+        <li><a onclick="showDashTab('notifications')"><i class="fas fa-bell"></i> Notifications <span class="sidebar-badge">3</span></a></li>
+        <li><a onclick="showPage('resume')"><i class="fas fa-file-alt"></i> Resume Builder</a></li>
+        <li><a onclick="showDashTab('interviews')"><i class="fas fa-comments"></i> AI Interview Prep</a></li>
+        <li><a onclick="showDashTab('roadmap')"><i class="fas fa-road"></i> Career Roadmap</a></li>
+        <li><a onclick="showDashTab('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+      </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="dashboard-main">
+
+      <div class="dashboard-welcome">
+        <div>
+          <h2>Welcome back, Tishu! 👋</h2>
+          <p>You have 3 new notifications and 2 interview invitations waiting.</p>
+          <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap">
+            <button class="btn btn-glass" onclick="showPage('jobs')"><i class="fas fa-search"></i> Find Jobs</button>
+            <button class="btn" style="background:rgba(255,255,255,0.2);color:#fff;backdrop-filter:blur(10px)" onclick="showPage('resume')"><i class="fas fa-file-alt"></i> Update Resume</button>
+          </div>
+        </div>
+        <div style="text-align:right;color:rgba(255,255,255,0.7);font-size:0.85rem">
+          <div style="font-size:2rem">🎯</div>
+          <div>Goal: Land first job</div>
+          <div style="font-size:0.75rem">72% profile complete</div>
+        </div>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="dash-stat">
+          <div class="dash-stat-icon" style="background:rgba(108,99,255,0.1)"><i class="fas fa-paper-plane" style="color:var(--primary)"></i></div>
+          <div><span class="number">18</span><span class="label">Applications Sent</span></div>
+        </div>
+        <div class="dash-stat">
+          <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1)"><i class="fas fa-eye" style="color:var(--success)"></i></div>
+          <div><span class="number">47</span><span class="label">Profile Views</span></div>
+        </div>
+        <div class="dash-stat">
+          <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1)"><i class="fas fa-comments" style="color:var(--warning)"></i></div>
+          <div><span class="number">3</span><span class="label">Interview Calls</span></div>
+        </div>
+        <div class="dash-stat">
+          <div class="dash-stat-icon" style="background:rgba(255,107,107,0.1)"><i class="fas fa-bookmark" style="color:var(--secondary)"></i></div>
+          <div><span class="number">12</span><span class="label">Saved Jobs</span></div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">Recent Applications</span>
+              <button class="btn" style="padding:0.3rem 0.75rem;font-size:0.78rem;color:var(--primary);background:var(--primary-light);border:none;border-radius:8px" onclick="showPage('jobs')">Apply More</button>
+            </div>
+
+            <div class="application-item">
+              <div class="app-logo" style="background:linear-gradient(135deg,#6C63FF,#4ECDC4)">G</div>
+              <div class="app-info">
+                <div class="app-role">Software Engineer</div>
+                <div class="app-company">Google India · Bangalore</div>
+              </div>
+              <span class="status-badge shortlisted">Shortlisted</span>
+            </div>
+
+            <div class="application-item">
+              <div class="app-logo" style="background:linear-gradient(135deg,#FC5A03,#FF6B6B)">S</div>
+              <div class="app-info">
+                <div class="app-role">Data Analyst</div>
+                <div class="app-company">Swiggy · Remote</div>
+              </div>
+              <span class="status-badge reviewed">Under Review</span>
+            </div>
+
+            <div class="application-item">
+              <div class="app-logo" style="background:linear-gradient(135deg,#E91E63,#9C27B0)">F</div>
+              <div class="app-info">
+                <div class="app-role">PM Intern</div>
+                <div class="app-company">Flipkart · Bangalore</div>
+              </div>
+              <span class="status-badge pending">Pending</span>
+            </div>
+
+            <div class="application-item">
+              <div class="app-logo" style="background:linear-gradient(135deg,#0078D4,#00B4D8)">Ms</div>
+              <div class="app-info">
+                <div class="app-role">Azure Cloud Intern</div>
+                <div class="app-company">Microsoft · Hyderabad</div>
+              </div>
+              <span class="status-badge shortlisted">Interview!</span>
+            </div>
+
+            <div class="application-item">
+              <div class="app-logo" style="background:linear-gradient(135deg,#E23744,#FF6B6B)">Zo</div>
+              <div class="app-info">
+                <div class="app-role">Backend Developer</div>
+                <div class="app-company">Zomato · Gurgaon</div>
+              </div>
+              <span class="status-badge rejected">Not Selected</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:1rem">
+            <div class="card-header">
+              <span class="card-title">Notifications</span>
+              <span style="font-size:0.75rem;color:var(--primary);cursor:pointer">Mark all read</span>
+            </div>
+
+            <div class="notification-item">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);margin-top:4px;flex-shrink:0"></div>
+              <div class="notif-icon" style="background:rgba(16,185,129,0.1)"><i class="fas fa-check-circle" style="color:var(--success)"></i></div>
+              <div>
+                <div class="notif-text">🎉 Google shortlisted your application for Software Engineer!</div>
+                <div class="notif-time">2 hours ago</div>
+              </div>
+            </div>
+
+            <div class="notification-item">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--primary);margin-top:4px;flex-shrink:0"></div>
+              <div class="notif-icon" style="background:rgba(108,99,255,0.1)"><i class="fas fa-calendar" style="color:var(--primary)"></i></div>
+              <div>
+                <div class="notif-text">Microsoft has scheduled an interview for June 22, 2026.</div>
+                <div class="notif-time">5 hours ago</div>
+              </div>
+            </div>
+
+            <div class="notification-item">
+              <div class="notif-icon" style="background:rgba(245,158,11,0.1)"><i class="fas fa-fire" style="color:var(--warning)"></i></div>
+              <div>
+                <div class="notif-text">15 new jobs matching your profile posted today.</div>
+                <div class="notif-time">1 day ago</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">AI Skill Gap Analysis</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem">
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:0.35rem;color:var(--text-muted)">
+                  <span>React.js</span><span style="color:var(--success)">85%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:0.35rem;color:var(--text-muted)">
+                  <span>System Design</span><span style="color:var(--warning)">40%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:40%;background:var(--warning)"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:0.35rem;color:var(--text-muted)">
+                  <span>DSA</span><span style="color:var(--secondary)">55%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:55%;background:var(--secondary)"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:0.35rem;color:var(--text-muted)">
+                  <span>Cloud (AWS)</span><span style="color:var(--warning)">30%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" style="width:30%;background:var(--warning)"></div></div>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:1rem;font-size:0.85rem" onclick="showToast('AI generating your learning roadmap!')">
+              <i class="fas fa-magic"></i> Get AI Learning Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== COMMUNITY ======================== -->
+<div id="page-community" class="page">
+  <div style="padding-top:90px;max-width:1200px;margin:0 auto;padding-bottom:3rem;padding-left:1rem;padding-right:1rem">
+    <div class="section-header" style="margin-bottom:2rem">
+      <div class="section-badge"><i class="fas fa-users"></i> Community</div>
+      <h2 class="section-title">Join the Fresher Community</h2>
+      <p class="section-subtitle">Ask questions, share interview experiences, get career advice from peers and mentors.</p>
+    </div>
+
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem">
+      <button class="btn btn-primary"><i class="fas fa-plus"></i> Post Discussion</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Career Advice</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Interview Experiences</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Success Stories</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Resume Reviews</button>
+    </div>
+
+    <div class="community-grid">
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-name">Ananya Sharma</div>
+            <div class="post-time">2 hours ago</div>
+          </div>
+        </div>
+        <div class="post-title">Cracked Amazon SDE-1 Interview! Here's my complete preparation strategy 🎉</div>
+        <div class="post-excerpt">After 3 months of rigorous preparation, I finally got the offer. Here's everything I studied — DSA, System Design, behavioral questions and more...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 234</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 47</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 1.2K</span>
+          <span class="post-category">Success Story</span>
+        </div>
+      </div>
+
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#FF6B6B,#E91E63)">R</div>
+          <div>
+            <div class="author-name">Rohit Kumar</div>
+            <div class="post-time">5 hours ago</div>
+          </div>
+        </div>
+        <div class="post-title">Google onsite interview experience for SWE role — Full breakdown</div>
+        <div class="post-excerpt">4 rounds, 3 hours total. Round 1 was DSA focused, Round 2 was design, Round 3 behavioral with eng manager, Round 4 cross-team...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 189</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 32</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 890</span>
+          <span class="post-category">Interview Exp</span>
+        </div>
+      </div>
+
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#4ECDC4,#44A08D)">P</div>
+          <div>
+            <div class="author-name">Priya Nair</div>
+            <div class="post-time">1 day ago</div>
+          </div>
+        </div>
+        <div class="post-title">Is a 7 CGPA enough for top MNCs? Honest answer from someone who made it</div>
+        <div class="post-excerpt">Short answer: Yes, it depends on way more than CGPA. Here's what actually matters when freshers apply to TCS, Infosys, Wipro and the product companies...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 312</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 68</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 2.1K</span>
+          <span class="post-category">Career Advice</span>
+        </div>
+      </div>
+
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#FFE66D,#FF6B6B)">S</div>
+          <div>
+            <div class="author-name">Samir Patel</div>
+            <div class="post-time">2 days ago</div>
+          </div>
+        </div>
+        <div class="post-title">Free resources to learn DSA from scratch in 3 months — Curated list</div>
+        <div class="post-excerpt">YouTube channels, websites, books, and practice platforms that helped me go from zero to cracking Paytm's coding round. All free resources...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 445</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 91</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 3.4K</span>
+          <span class="post-category">Resources</span>
+        </div>
+      </div>
+
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#6C63FF,#4ECDC4)">M</div>
+          <div>
+            <div class="author-name">Meera Singh</div>
+            <div class="post-time">3 days ago</div>
+          </div>
+        </div>
+        <div class="post-title">Non-CS student to Flipkart PM Intern — My unconventional journey</div>
+        <div class="post-excerpt">Commerce background, no coding skills, never thought I'd work at a tech company. Here's exactly how I pivoted into product management...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 278</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 54</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 1.8K</span>
+          <span class="post-category">Success Story</span>
+        </div>
+      </div>
+
+      <div class="community-card">
+        <div class="community-card-header">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#E91E63,#FF6B6B)">K</div>
+          <div>
+            <div class="author-name">Karan Mehta</div>
+            <div class="post-time">4 days ago</div>
+          </div>
+        </div>
+        <div class="post-title">Rejected 50 times before landing at Microsoft — What I learned</div>
+        <div class="post-excerpt">Rejection is data, not failure. After 50+ rejections and 8 months of trying, I finally cracked Microsoft. Here's the mindset shift that changed everything...</div>
+        <div class="post-footer">
+          <span class="post-stat"><i class="fas fa-heart"></i> 567</span>
+          <span class="post-stat"><i class="fas fa-comment"></i> 103</span>
+          <span class="post-stat"><i class="fas fa-eye"></i> 4.2K</span>
+          <span class="post-category">Motivation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== BLOG ======================== -->
+<div id="page-blog" class="page">
+  <div style="padding-top:90px;max-width:1200px;margin:0 auto;padding-bottom:3rem;padding-left:1rem;padding-right:1rem">
+    <div class="section-header" style="margin-bottom:2rem">
+      <div class="section-badge"><i class="fas fa-book-open"></i> Career Blog</div>
+      <h2 class="section-title">Career Guidance & Resources</h2>
+      <p class="section-subtitle">Expert articles on resume writing, interview tips, coding resources and career growth.</p>
+    </div>
+
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem">
+      <button class="btn btn-primary">All Posts</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Interview Tips</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Resume Tips</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Coding</button>
+      <button class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Career Guidance</button>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(108,99,255,0.1),rgba(78,205,196,0.1))">📝</div>
+        <div class="blog-content">
+          <span class="blog-cat">Resume Tips</span>
+          <h3>How to Write a Fresher Resume That Gets Past ATS in 2026</h3>
+          <p>Most resumes are rejected before a human ever sees them. Here's how to beat the robots and land in front of real recruiters.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 8 min read</span>
+            <span>June 15, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(255,107,107,0.1),rgba(255,230,109,0.1))">💼</div>
+        <div class="blog-content">
+          <span class="blog-cat">Interview Tips</span>
+          <h3>Top 50 Fresher Interview Questions Asked at TCS, Infosys, Wipro</h3>
+          <p>Compiled from 500+ interview experiences shared by TishuJobs community members. Practice these to ace your first placement interview.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 15 min read</span>
+            <span>June 12, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(78,205,196,0.1))">💻</div>
+        <div class="blog-content">
+          <span class="blog-cat">Coding</span>
+          <h3>Complete DSA Roadmap for Freshers: Zero to Placement Ready</h3>
+          <p>A step-by-step guide covering arrays, linked lists, trees, graphs, DP, and more. With curated LeetCode problems for each topic.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 20 min read</span>
+            <span>June 8, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(255,107,107,0.1))">🚀</div>
+        <div class="blog-content">
+          <span class="blog-cat">Career Guidance</span>
+          <h3>Service Company vs Product Company: Which Should Freshers Choose?</h3>
+          <p>A brutally honest comparison of TCS vs Google, Infosys vs Amazon. What actually matters when you're just starting out.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 12 min read</span>
+            <span>June 5, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(108,99,255,0.1),rgba(255,107,107,0.1))">🎯</div>
+        <div class="blog-content">
+          <span class="blog-cat">Career Guidance</span>
+          <h3>The Ultimate LinkedIn Profile Guide for Freshers in 2026</h3>
+          <p>How to set up a LinkedIn that attracts recruiters, even with zero work experience. Real examples from successful freshers.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 10 min read</span>
+            <span>June 1, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="showToast('Opening blog post...')">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(78,205,196,0.1),rgba(108,99,255,0.1))">📊</div>
+        <div class="blog-content">
+          <span class="blog-cat">Coding</span>
+          <h3>Top 10 Projects Freshers Should Build to Land Their First Job</h3>
+          <p>Projects that actually impress recruiters. With GitHub links, tech stacks, and what to say about each project in your interview.</p>
+          <div class="blog-meta">
+            <span><i class="fas fa-clock"></i> 18 min read</span>
+            <span>May 28, 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== ABOUT / FOUNDER ======================== -->
+<div id="page-about" class="page">
+  <div class="founder-section">
+    <div class="founder-grid">
+      <div class="founder-card">
+        <div class="founder-avatar-wrap">TKG</div>
+        <div class="founder-name">Tishu Kumar Giri</div>
+        <div class="founder-title">Founder & CEO, TishuJobs · Aspiring Software Developer</div>
+        <div class="founder-badges">
+          <span class="founder-badge">🚀 Builder</span>
+          <span class="founder-badge">💻 Developer</span>
+          <span class="founder-badge">🎯 Fresher</span>
+        </div>
+        <div class="founder-socials">
+          <div class="founder-social" onclick="showToast('Opening LinkedIn...')"><i class="fab fa-linkedin"></i></div>
+          <div class="founder-social" onclick="showToast('Opening GitHub...')"><i class="fab fa-github"></i></div>
+          <div class="founder-social" onclick="showToast('Opening Twitter...')"><i class="fab fa-twitter"></i></div>
+          <div class="founder-social" onclick="showPage('contact')"><i class="fas fa-envelope"></i></div>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;text-align:center">
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:#fff">500K+</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">Students Helped</div>
+            </div>
+            <div>
+              <div style="font-size:1.5rem;font-weight:800;color:#fff">50K+</div>
+              <div style="font-size:0.75rem;color:rgba(255,255,255,0.5)">Jobs Listed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="founder-story">
+        <h2>Built by a Fresher,<br>for Every Fresher</h2>
+        <p>My name is <strong style="color:#fff">Tishu Kumar Giri</strong>, and I'm a passionate aspiring Software Developer from India. Like millions of freshers, I struggled to find my first opportunity. Existing platforms were either too complex, too expensive, or simply not built with freshers in mind.</p>
+
+        <div class="founder-quote">
+          "Every fresher deserves equal access to opportunities, regardless of which college they attended or city they're from. Technology should be the great equalizer."
+        </div>
+
+        <p>I created <strong style="color:#fff">TishuJobs</strong> to solve a real problem I faced myself. A platform specifically designed for students, fresh graduates, and first-time job seekers — complete with AI-powered tools, a supportive community, and thousands of verified opportunities.</p>
+
+        <p>My vision is simple: to build <strong style="color:#fff">India's most trusted platform for freshers and entry-level professionals</strong>. A place where your potential matters more than your experience.</p>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+          <button class="btn btn-primary" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Get in Touch</button>
+          <button class="btn btn-glass" onclick="showPage('community')"><i class="fas fa-users"></i> Join Community</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mission & Vision -->
+  <section class="section" style="background:var(--surface)">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem">
+        <div class="card" style="text-align:center;padding:2.5rem">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🎯</div>
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--text)">Our Mission</h3>
+          <p style="color:var(--text-muted);line-height:1.7;font-size:0.9rem">Helping freshers build successful careers by connecting them with the right opportunities, tools, and community support at every step of their journey.</p>
+        </div>
+        <div class="card" style="text-align:center;padding:2.5rem">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--text)">Our Vision</h3>
+          <p style="color:var(--text-muted);line-height:1.7;font-size:0.9rem">To become India's leading fresher-focused job platform — where every student has equal access to their dream career, powered by AI and community.</p>
+        </div>
+        <div class="card" style="text-align:center;padding:2.5rem">
+          <div style="font-size:2.5rem;margin-bottom:1rem">💡</div>
+          <h3 style="font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--text)">Our Values</h3>
+          <p style="color:var(--text-muted);line-height:1.7;font-size:0.9rem">Inclusivity, transparency, and empowerment. Every feature we build asks: "Does this genuinely help a fresher land their first job?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================== LOGIN PAGE ======================== -->
+<div id="page-login" class="page">
+  <div class="auth-page">
+    <div class="auth-visual">
+      <div class="auth-visual-content">
+        <div class="nav-logo" style="font-size:2rem;margin-bottom:1.5rem;display:block;text-align:center">Tishu<span style="-webkit-text-fill-color:#fff;background:none">Jobs</span></div>
+        <h2>Welcome Back!</h2>
+        <p>Log back in and continue your journey to landing your dream job.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Access 50,000+ fresher jobs</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> AI resume review & interview prep</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Track your applications</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Get personalized job alerts</div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-form-area">
+      <div class="auth-form">
+        <div class="nav-logo" style="font-size:1.5rem;display:block;margin-bottom:1.5rem;text-align:center">Tishu<span style="background:none;-webkit-text-fill-color:var(--primary)">Jobs</span></div>
+        <div class="auth-title">Log In</div>
+        <div class="auth-subtitle">Don't have an account? <a onclick="showPage('signup')">Sign up free →</a></div>
+
+        <div class="social-login">
+          <button class="social-btn" onclick="showToast('Google login initiated...')"><i class="fab fa-google"></i> Google</button>
+          <button class="social-btn" onclick="showToast('LinkedIn login initiated...')"><i class="fab fa-linkedin"></i> LinkedIn</button>
+        </div>
+        <div class="divider">or continue with email</div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="form-input-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" class="form-input" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="form-input-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" class="form-input" placeholder="••••••••">
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;font-size:0.85rem">
+          <label style="display:flex;align-items:center;gap:0.5rem;color:var(--text-muted);cursor:pointer">
+            <input type="checkbox" style="accent-color:var(--primary)"> Remember me
+          </label>
+          <a style="color:var(--primary);cursor:pointer" onclick="showPage('forgot-password')">Forgot password?</a>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;padding:0.875rem;font-size:1rem" onclick="loginUser()">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+        <div class="auth-switch">New to TishuJobs? <a onclick="showPage('signup')">Create free account</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== SIGNUP PAGE ======================== -->
+<div id="page-signup" class="page">
+  <div class="auth-page">
+    <div class="auth-visual">
+      <div class="auth-visual-content">
+        <div class="nav-logo" style="font-size:2rem;margin-bottom:1.5rem;display:block;text-align:center">Tishu<span style="-webkit-text-fill-color:#fff;background:none">Jobs</span></div>
+        <h2>Start Your Career Journey</h2>
+        <p>Join 500,000+ freshers who found their first job or internship on TishuJobs.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Free to join — forever</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> AI-powered resume builder</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> 1-click job applications</div>
+          <div class="auth-feature"><i class="fas fa-check-circle"></i> Join 500K+ student community</div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-form-area">
+      <div class="auth-form">
+        <div class="auth-title">Create Account</div>
+        <div class="auth-subtitle">Already have one? <a onclick="showPage('login')">Log in →</a></div>
+
+        <div class="social-login">
+          <button class="social-btn" onclick="showToast('Google signup initiated...')"><i class="fab fa-google"></i> Google</button>
+          <button class="social-btn" onclick="showToast('LinkedIn signup initiated...')"><i class="fab fa-linkedin"></i> LinkedIn</button>
+        </div>
+        <div class="divider">or sign up with email</div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-input" placeholder="Tishu">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-input" placeholder="Kumar">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="form-input-icon"><i class="fas fa-envelope"></i><input type="email" class="form-input" placeholder="you@example.com"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">I am a...</label>
+          <select class="form-input">
+            <option>Student (Currently Studying)</option>
+            <option>Fresh Graduate (0–1 Year)</option>
+            <option>Job Seeker (1–2 Years)</option>
+            <option>Employer / Recruiter</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="form-input-icon"><i class="fas fa-lock"></i><input type="password" class="form-input" placeholder="Min. 8 characters"></div>
+        </div>
+        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:1.25rem">
+          By creating an account, you agree to our <a href="#" style="color:var(--primary)">Terms of Service</a> and <a href="#" style="color:var(--primary)">Privacy Policy</a>.
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;padding:0.875rem;font-size:1rem" onclick="signupUser()">
+          <i class="fas fa-user-plus"></i> Create Free Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== COMPANIES PAGE ======================== -->
+<div id="page-companies" class="page">
+  <div style="padding-top:90px;max-width:1200px;margin:0 auto;padding-bottom:3rem;padding-left:1rem;padding-right:1rem">
+    <div class="section-header" style="margin-bottom:2rem">
+      <div class="section-badge"><i class="fas fa-building"></i> Companies</div>
+      <h2 class="section-title">Explore Top Companies</h2>
+      <p class="section-subtitle">Browse company profiles, reviews, benefits, and open positions.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem">
+      <div class="card" style="cursor:pointer" onclick="showToast('Opening company profile...')">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+          <div class="job-company-logo" style="width:56px;height:56px;background:linear-gradient(135deg,#4285F4,#34A853);font-size:1.3rem">G</div>
+          <div>
+            <div style="font-weight:700;font-size:1rem;color:var(--text)">Google India</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">Technology · Bangalore</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <span class="job-tag green">Great Place to Work</span>
+          <span class="job-tag blue">Top Employer</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6">Google's India engineering hub working on Search, Maps, YouTube, and Cloud products.</div>
+        <div style="display:flex;justify-content:space-between;padding-top:0.75rem;border-top:1px solid var(--border);font-size:0.8rem">
+          <span><i class="fas fa-star" style="color:#F59E0B"></i> 4.5 (2.3K reviews)</span>
+          <span style="color:var(--primary);font-weight:600">24 open jobs →</span>
+        </div>
+      </div>
+
+      <div class="card" style="cursor:pointer" onclick="showToast('Opening company profile...')">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+          <div class="job-company-logo" style="width:56px;height:56px;background:linear-gradient(135deg,#FC5A03,#FFCD00);font-size:1.3rem">S</div>
+          <div>
+            <div style="font-weight:700;font-size:1rem;color:var(--text)">Swiggy</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">Food Tech · Bangalore</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <span class="job-tag green">Fresher Friendly</span>
+          <span class="job-tag purple">Startup Culture</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6">India's leading food delivery platform processing 3M+ orders daily. Strong engineering culture.</div>
+        <div style="display:flex;justify-content:space-between;padding-top:0.75rem;border-top:1px solid var(--border);font-size:0.8rem">
+          <span><i class="fas fa-star" style="color:#F59E0B"></i> 4.2 (1.1K reviews)</span>
+          <span style="color:var(--primary);font-weight:600">31 open jobs →</span>
+        </div>
+      </div>
+
+      <div class="card" style="cursor:pointer" onclick="showToast('Opening company profile...')">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+          <div class="job-company-logo" style="width:56px;height:56px;background:linear-gradient(135deg,#0147FF,#00B4D8);font-size:1.3rem">R</div>
+          <div>
+            <div style="font-weight:700;font-size:1rem;color:var(--text)">Razorpay</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">Fintech · Bangalore</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <span class="job-tag blue">Remote Friendly</span>
+          <span class="job-tag purple">High Growth</span>
+        </div>
+        <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.6">India's leading payment gateway powering 8M+ businesses. Excellent tech culture and compensation.</div>
+        <div style="display:flex;justify-content:space-between;padding-top:0.75rem;border-top:1px solid var(--border);font-size:0.8rem">
+          <span><i class="fas fa-star" style="color:#F59E0B"></i> 4.4 (890 reviews)</span>
+          <span style="color:var(--primary);font-weight:600">15 open jobs →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== CONTACT PAGE ======================== -->
+<div id="page-contact" class="page">
+  <div style="padding-top:90px;padding-bottom:3rem;padding-left:1rem;padding-right:1rem">
+    <div class="section-header" style="margin-bottom:3rem">
+      <div class="section-badge"><i class="fas fa-envelope"></i> Contact</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">Have a question, feedback, or want to partner with us? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h3>Talk to the Founder</h3>
+        <p>Have a question or want to share your feedback? Tishu personally reads every message and responds to as many as possible.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-user"></i></div>
+          <div class="contact-detail-text">
+            <div class="label">Founder</div>
+            <div class="value">Tishu Kumar Giri</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-detail-text">
+            <div class="label">Email</div>
+            <div class="value">tishu@tishujobs.in</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-detail-text">
+            <div class="label">Location</div>
+            <div class="value">India 🇮🇳</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-detail-text">
+            <div class="label">Response Time</div>
+            <div class="value">Within 24 hours</div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem">
+          <div style="font-size:0.8rem;opacity:0.8;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">Follow Us</div>
+          <div style="display:flex;gap:0.5rem">
+            <button class="footer-social-btn" onclick="showToast('Opening LinkedIn...')"><i class="fab fa-linkedin"></i></button>
+            <button class="footer-social-btn" onclick="showToast('Opening Twitter...')"><i class="fab fa-twitter"></i></button>
+            <button class="footer-social-btn" onclick="showToast('Opening Instagram...')"><i class="fab fa-instagram"></i></button>
+            <button class="footer-social-btn" onclick="showToast('Opening GitHub...')"><i class="fab fa-github"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <div class="contact-tabs">
+          <button class="contact-tab active" onclick="switchContactTab(this)">💬 Support</button>
+          <button class="contact-tab" onclick="switchContactTab(this)">⭐ Feedback</button>
+          <button class="contact-tab" onclick="switchContactTab(this)">🐛 Report Issue</button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" class="form-input" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input textarea" placeholder="Tell us more..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;padding:0.875rem;font-size:0.95rem" onclick="sendMessage()">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== FOOTER ======================== -->
+<footer id="main-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo">Tishu<span style="-webkit-text-fill-color:rgba(255,255,255,0.7);background:none">Jobs</span></div>
+      <p>Connecting Freshers with Their Dream Careers. Built with ❤️ by Tishu Kumar Giri, a passionate fresher who believes every student deserves their shot.</p>
+      <div class="footer-social">
+        <button class="footer-social-btn" onclick="showToast('Opening LinkedIn...')"><i class="fab fa-linkedin"></i></button>
+        <button class="footer-social-btn" onclick="showToast('Opening Twitter...')"><i class="fab fa-twitter"></i></button>
+        <button class="footer-social-btn" onclick="showToast('Opening Instagram...')"><i class="fab fa-instagram"></i></button>
+        <button class="footer-social-btn" onclick="showToast('Opening GitHub...')"><i class="fab fa-github"></i></button>
+        <button class="footer-social-btn" onclick="showToast('Opening YouTube...')"><i class="fab fa-youtube"></i></button>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Job Seekers</h4>
+      <ul>
+        <li><a onclick="showPage('jobs')">Browse Jobs</a></li>
+        <li><a onclick="showPage('internships')">Internships</a></li>
+        <li><a onclick="showPage('resume')">Resume Builder</a></li>
+        <li><a onclick="showPage('dashboard')">My Dashboard</a></li>
+        <li><a onclick="showPage('community')">Community</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Employers</h4>
+      <ul>
+        <li><a onclick="showToast('Opening employer signup...')">Post a Job</a></li>
+        <li><a onclick="showToast('Opening employer dashboard...')">Employer Dashboard</a></li>
+        <li><a onclick="showToast('Opening pricing...')">Pricing</a></li>
+        <li><a onclick="showToast('Opening campus drive...')">Campus Drives</a></li>
+        <li><a onclick="showToast('Opening bulk hiring...')">Bulk Hiring</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a onclick="showPage('blog')">Career Blog</a></li>
+        <li><a onclick="showPage('community')">Interview Tips</a></li>
+        <li><a onclick="showPage('blog')">Resume Guide</a></li>
+        <li><a onclick="showPage('blog')">DSA Resources</a></li>
+        <li><a onclick="showPage('about')">Success Stories</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a onclick="showPage('about')">About Founder</a></li>
+        <li><a onclick="showPage('contact')">Contact Us</a></li>
+        <li><a onclick="showToast('Opening Privacy Policy...')">Privacy Policy</a></li>
+        <li><a onclick="showToast('Opening Terms...')">Terms of Service</a></li>
+        <li><a onclick="showToast('Opening Sitemap...')">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 TishuJobs. Founder: <strong style="color:rgba(255,255,255,0.7)">Tishu Kumar Giri</strong>. Mission: Helping Freshers Build Successful Careers.</span>
+    <div style="display:flex;gap:1rem">
+      <a onclick="showToast('Opening Privacy Policy...')">Privacy</a>
+      <a onclick="showToast('Opening Terms...')">Terms</a>
+      <a onclick="showToast('Opening Cookies...')">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================== SHARE MODAL ======================== -->
+<div class="modal-overlay" id="share-modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Share this Job</div>
+      <button class="modal-close" onclick="closeShareModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.25rem" id="share-job-title">Share this opportunity with friends</p>
+    <div class="share-options">
+      <div class="share-option" onclick="shareVia('whatsapp')">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </div>
+      <div class="share-option" onclick="shareVia('facebook')">
+        <i class="fab fa-facebook"></i>
+        <span>Facebook</span>
+      </div>
+      <div class="share-option" onclick="shareVia('linkedin')">
+        <i class="fab fa-linkedin" style="color:#0A66C2"></i>
+        <span>LinkedIn</span>
+      </div>
+      <div class="share-option" onclick="shareVia('email')">
+        <i class="fas fa-envelope" style="color:#EA4335"></i>
+        <span>Email</span>
+      </div>
+    </div>
+    <div class="share-link-copy">
+      <span>https://tishujobs.in/job/sde-at-google-123</span>
+      <button class="copy-btn" onclick="copyLink()"><i class="fas fa-copy"></i> Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toast-msg">Action completed!</span>
+</div>
+
+<script>
+// ===== PAGE NAVIGATION =====
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + page);
+  if (el) {
+    el.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // Show/hide footer
+  const noFooter = ['login','signup','dashboard'];
+  document.getElementById('main-footer').style.display = noFooter.includes(page) ? 'none' : 'block';
+
+  // Populate jobs if needed
+  if (page === 'jobs') populateJobs();
+}
+
+// ===== DARK MODE =====
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('theme-icon');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.removeAttribute('data-theme');
+    icon.className = 'fas fa-moon';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.className = 'fas fa-sun';
+  }
+}
+
+// ===== SAVE JOB =====
+function toggleSave(btn) {
+  btn.classList.toggle('saved');
+  const icon = btn.querySelector('i');
+  if (btn.classList.contains('saved')) {
+    icon.className = 'fas fa-bookmark';
+    showToast('Job saved to your list!');
+  } else {
+    icon.className = 'far fa-bookmark';
+    showToast('Job removed from saved list.');
+  }
+}
+
+// ===== SHARE MODAL =====
+let currentJob = '';
+function openShareModal(job) {
+  currentJob = job;
+  document.getElementById('share-job-title').textContent = 'Share: ' + job;
+  document.getElementById('share-modal').classList.add('active');
+}
+function closeShareModal() {
+  document.getElementById('share-modal').classList.remove('active');
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('share-modal')) closeShareModal();
+}
+function shareVia(platform) {
+  const messages = {
+    whatsapp: 'Sharing on WhatsApp...',
+    facebook: 'Sharing on Facebook...',
+    linkedin: 'Sharing on LinkedIn...',
+    email: 'Opening email client...'
+  };
+  closeShareModal();
+  showToast(messages[platform]);
+}
+function copyLink() {
+  showToast('Link copied to clipboard!');
+}
+
+// ===== TOAST =====
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ===== AUTH =====
+function loginUser() {
+  showToast('Logging in...');
+  setTimeout(() => { showPage('dashboard'); showToast('Welcome back to TishuJobs!'); }, 800);
+}
+function signupUser() {
+  showToast('Creating your account...');
+  setTimeout(() => { showPage('dashboard'); showToast('Welcome to TishuJobs! 🎉'); }, 800);
+}
+
+// ===== RESUME TEMPLATE =====
+function selectTemplate(el, name) {
+  document.querySelectorAll('.template-item').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  showToast('Template switched to ' + name + '!');
+}
+
+// ===== CONTACT TABS =====
+function switchContactTab(el) {
+  document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+function sendMessage() {
+  showToast('Message sent! Tishu will reply within 24 hours 📬');
+}
+
+// ===== DASHBOARD TABS =====
+function showDashTab(tab) {
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  showToast('Loading ' + tab + '...');
+}
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+  showToast('Navigation menu (mobile implementation ready)');
+}
+
+// ===== FILTERS =====
+function clearFilters() {
+  document.querySelectorAll('.filter-option input[type="checkbox"]').forEach(cb => cb.checked = false);
+  showToast('All filters cleared!');
+}
+
+// ===== JOBS DATA =====
+const jobsData = [
+  { title: 'Software Developer', company: 'TCS', location: 'Pune', salary: '₹3.5–5.5 LPA', type: 'Fresher', tag: 'Java, Spring', color: 'linear-gradient(135deg,#1F4FFF,#00B4D8)', letter: 'T', deadline: '30 Jul' },
+  { title: 'Junior React Developer', company: 'Razorpay', location: 'Remote', salary: '₹6–9 LPA', type: 'Fresher', tag: 'React, JS', color: 'linear-gradient(135deg,#0147FF,#00B4D8)', letter: 'R', deadline: '15 Jul' },
+  { title: 'Data Analyst', company: 'Swiggy', location: 'Bangalore', salary: '₹5–7 LPA', type: '0 yr', tag: 'SQL, Python', color: 'linear-gradient(135deg,#FC5A03,#FFCD00)', letter: 'S', deadline: '25 Jul' },
+  { title: 'UI/UX Designer', company: 'Zepto', location: 'Mumbai', salary: '₹4–7 LPA', type: '0–2 yr', tag: 'Figma', color: 'linear-gradient(135deg,#1F2544,#474F7A)', letter: 'Z', deadline: '5 Aug' },
+  { title: 'Backend Developer', company: 'Zomato', location: 'Gurgaon', salary: '₹7–10 LPA', type: '0–1 yr', tag: 'Node.js', color: 'linear-gradient(135deg,#E23744,#FF6B6B)', letter: 'Zo', deadline: '10 Aug' },
+  { title: 'Android Developer', company: 'Paytm', location: 'Noida', salary: '₹5–8 LPA', type: 'Fresher OK', tag: 'Kotlin', color: 'linear-gradient(135deg,#00BAF2,#0052CC)', letter: 'P', deadline: '20 Jul' },
+  { title: 'Cloud Engineer', company: 'Infosys', location: 'Chennai', salary: '₹4–6 LPA', type: 'Fresher', tag: 'AWS, Azure', color: 'linear-gradient(135deg,#00B386,#00875A)', letter: 'In', deadline: '1 Aug' },
+  { title: 'Machine Learning Intern', company: 'Ola', location: 'Bangalore', salary: '₹25K/mo', type: 'Intern', tag: 'Python, TF', color: 'linear-gradient(135deg,#1A1930,#6C63FF)', letter: 'O', deadline: '12 Jul' },
+  { title: 'Product Analyst', company: 'PhonePe', location: 'Remote', salary: '₹6–8 LPA', type: '0–1 yr', tag: 'Excel, SQL', color: 'linear-gradient(135deg,#5F0BE5,#9C40F3)', letter: 'Ph', deadline: '28 Jul' },
+];
+
+function populateJobs() {
+  const container = document.getElementById('jobs-results');
+  if (!container || container.children.length > 0) return;
+  container.innerHTML = jobsData.map(j => `
+    <div class="job-card" onclick="openShareModal('${j.title} at ${j.company}')">
+      <div class="job-card-header">
+        <div class="job-company-logo" style="background:${j.color}">${j.letter}</div>
+        <div class="job-card-info">
+          <div class="job-title">${j.title}</div>
+          <div class="job-company">${j.company}</div>
+        </div>
+        <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+      </div>
+      <div class="job-tags">
+        <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+        <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> ${j.location}</span>
+        <span class="job-tag"><i class="fas fa-briefcase"></i> ${j.type}</span>
+        <span class="job-tag purple">${j.tag}</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-salary">${j.salary}</span>
+        <span class="job-deadline"><i class="fas fa-clock"></i> Apply by ${j.deadline}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function loadMoreJobs() {
+  showToast('Loading more jobs...');
+  const container = document.getElementById('jobs-results');
+  const moreJobs = [
+    { title: 'DevOps Engineer', company: 'Myntra', location: 'Bangalore', salary: '₹5–8 LPA', type: '0–2 yr', tag: 'Docker, K8s', color: 'linear-gradient(135deg,#FF6B6B,#E91E63)', letter: 'M', deadline: '3 Aug' },
+    { title: 'QA Engineer', company: 'Meesho', location: 'Bangalore', salary: '₹4–6 LPA', type: 'Fresher', tag: 'Selenium, Java', color: 'linear-gradient(135deg,#9C27B0,#673AB7)', letter: 'Me', deadline: '8 Aug' },
+    { title: 'Cybersecurity Analyst', company: 'Accenture', location: 'Hyderabad', salary: '₹3.5–6 LPA', type: '0–1 yr', tag: 'Security, SIEM', color: 'linear-gradient(135deg,#2C003E,#9C27B0)', letter: 'Ac', deadline: '15 Aug' },
+  ];
+  container.innerHTML += moreJobs.map(j => `
+    <div class="job-card" onclick="openShareModal('${j.title} at ${j.company}')">
+      <div class="job-card-header">
+        <div class="job-company-logo" style="background:${j.color}">${j.letter}</div>
+        <div class="job-card-info">
+          <div class="job-title">${j.title}</div>
+          <div class="job-company">${j.company}</div>
+        </div>
+        <button class="job-save-btn" onclick="event.stopPropagation();toggleSave(this)"><i class="far fa-bookmark"></i></button>
+      </div>
+      <div class="job-tags">
+        <span class="job-tag green"><i class="fas fa-circle" style="font-size:6px"></i> Open</span>
+        <span class="job-tag blue"><i class="fas fa-map-marker-alt"></i> ${j.location}</span>
+        <span class="job-tag"><i class="fas fa-briefcase"></i> ${j.type}</span>
+        <span class="job-tag purple">${j.tag}</span>
+      </div>
+      <div class="job-footer">
+        <span class="job-salary">${j.salary}</span>
+        <span class="job-deadline"><i class="fas fa-clock"></i> Apply by ${j.deadline}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== ANIMATED COUNTERS =====
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseInt(el.getAttribute('data-target'));
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      if (target >= 1000000) el.textContent = Math.floor(current / 1000) + 'K+';
+      else if (target >= 10000) el.textContent = Math.floor(current / 1000) + 'K+';
+      else el.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+  });
+}
+
+// ===== INTERSECTION OBSERVER =====
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      counterObserver.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) counterObserver.observe(statsSection);
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  showPage('home');
+});
+</script>
+</body>
+</html>
